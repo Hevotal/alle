@@ -1,0 +1,50 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "alle",
+	"main": "./src/worker.ts",
+	"compatibility_date": "2025-03-01",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".open-next/assets"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"triggers": {
+		"crons": [
+			"0 0 1 1 *"
+		]
+	},
+	"vars": {
+		"ENABLE_AI_EXTRACT": "true",
+		"EXTRACT_MODEL": "google-ai-studio/gemini-2.5-flash",
+		"ENABLE_AUTO_DEL": "false",
+		"AUTO_DEL_TYPE": "auth_code,auth_link",
+		"AUTO_DEL_TIME": "3600",
+		"WEBHOOK_URL": "http://localhost:3000",
+		"WEBHOOK_TYPE": "json",
+		"WEBHOOK_TEMPLATE": "{}",
+		"TELEGRAM_BOT_TOKEN": "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11",
+		"TELEGRAM_CHAT_ID": "123456789",
+		"TELEGRAM_TEMPLATE": "{}",
+		"TELEGRAM_TYPE": "markdown",
+		"JWT_MIN_TTL": "300",
+		"JWT_MAX_TTL": "6000"
+	},
+	"ai": {
+		"binding": "AI",
+		"remote": true
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "alle",
+			"database_id": "9f7af4f5-64f6-4836-8f90-9d32c7602709",
+			"remote": false
+		}
+	]
+}
